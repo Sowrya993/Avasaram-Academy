@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Orbit - Empowering Careers</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#0056D2', // Tech Blue
+                        brandDark: '#0F172A', // Dark Navy/Black
+                        brandLight: '#F8FAFC', // Off White
+                        brandAccent: '#FFC107', // Gold/Amber for Awards & Alerts
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0056D2; border-radius: 5px; }
+        
+        /* Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Chatbot Bounce */
+        @keyframes bounce-slight {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .animate-bounce-slight {
+            animation: bounce-slight 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 relative">
+
+    <!-- 🔴 TOP ALERT: FREE MASTERCLASS (New Feature) -->
+    <div id="top-alert" class="bg-brandAccent text-brandDark py-2 px-4 text-center font-bold text-sm md:text-base flex justify-center items-center gap-2 shadow-md relative z-50">
+        <span class="animate-pulse text-red-600"><i class="fa-solid fa-circle text-xs"></i> LIVE:</span> 
+        Attend Free Masterclass on DSA & System Design! 
+        <a href="#contact" class="underline hover:text-white ml-2">Register for Free</a>
+        <button onclick="document.getElementById('top-alert').style.display='none'" class="absolute right-4 text-lg hover:text-white">&times;</button>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-orbit text-brandBlue text-3xl mr-2"></i>
+                    <span class="font-bold text-2xl tracking-wide text-brandDark">SKILL <span class="text-brandBlue">ORBIT</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center text-sm font-medium">
+                    <a href="#home" class="hover:text-brandBlue transition">Home</a>
+                    <a href="#about" class="hover:text-brandBlue transition">About</a>
+                    <a href="#courses" class="hover:text-brandBlue transition">Courses</a>
+                    <a href="#projects" class="hover:text-brandBlue transition">Projects</a>
+                    <a href="#hall-of-fame" class="hover:text-brandBlue transition">Success Stories</a>
+                    <a href="#career-support" class="hover:text-brandBlue transition">Career Support</a>
+                    <!-- CTA Button -->
+                    <a href="#contact" class="bg-brandBlue text-white px-5 py-2.5 rounded-full hover:bg-brandDark transition shadow-lg">
+                        Book Free Demo
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-brandBlue focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full shadow-xl">
+            <a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Home</a>
+            <a href="#about" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">About</a>
+            <a href="#courses" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Courses</a>
+            <a href="#projects" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Projects</a>
+            <a href="#career-support" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Career Support</a>
+            <a href="#contact" class="block px-4 py-3 text-brandBlue font-bold bg-blue-50">Book Free Demo</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Original Tagline + New Buttons) -->
+    <section id="home" class="relative bg-brandDark text-white pt-24 pb-24 overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+            <div class="absolute right-0 top-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute left-0 bottom-0 w-64 h-64 bg-purple-600 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <div class="fade-in-section">
+                <span class="bg-blue-600/30 text-blue-200 border border-blue-400/30 px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">
+                    🚀 Future-Ready Education
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Empowering Careers, <br> <span class="text-blue-400">One Skill at a Time!</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Hands-on Coding • Interview Preparation • Affordable Learning • Career Growth
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#courses" class="bg-brandBlue text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-600 transition shadow-lg transform hover:-translate-y-1">
+                        Explore Courses
+                    </a>
+                    <button onclick="openChat()" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-brandDark transition transform hover:-translate-y-1">
+                        <i class="fa-regular fa-circle-play mr-2"></i> 3-Day Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US (Original Flyer Content) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-brandDark mb-2">Why Choose Skill Orbit?</h2>
+                <div class="h-1 w-20 bg-brandBlue mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition duration-300 border-b-4 border-brandBlue fade-in-section">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brandBlue text-2xl">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Job-Oriented</h3>
+                    <p class="text-gray-600 text-sm">Master Python, DSA & SQL designed specifically for career growth.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition duration-300 border-b-4 border-brandBlue fade-in-section" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brandBlue text-2xl">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Expert-Led</h3>
+                    <p class="text-gray-600 text-sm">Learn from industry pros who have cracked top tech interviews.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition duration-300 border-b-4 border-brandBlue fade-in-section" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brandBlue text-2xl">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Affordable</h3>
+                    <p class="text-gray-600 text-sm">Budget-friendly pricing without compromising on quality.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition duration-300 border-b-4 border-brandBlue fade-in-section" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-brandBlue text-2xl">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Live & Interactive</h3>
+                    <p class="text-gray-600 text-sm">Doubt solving, group discussions, mock tests & study material.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAPS (New Feature) -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <span class="text-brandBlue font-bold uppercase text-sm">Your Path to Success</span>
+                <h2 class="text-3xl font-bold text-brandDark mt-2">Clear Learning Roadmaps</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Roadmap Item -->
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade-in-section border-l-4 border-brandBlue">
+                    <h3 class="font-bold text-lg mb-4"><i class="fa-brands fa-java text-brandBlue mr-2"></i> Java Developer</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center"><span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">1</span> Core Java & OOPs</li>
+                        <li class="flex items-center"><span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">2</span> DSA & Collections</li>
+                        <li class="flex items-center"><span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">3</span> Spring Boot & DB</li>
+                        <li class="flex items-center font-bold text-brandDark"><i class="fa-solid fa-trophy text-yellow-500 mr-3 ml-1"></i> Job Ready</li>
+                    </ul>
+                </div>
+                <!-- Roadmap Item -->
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade-in-section border-l-4 border-yellow-500" style="transition-delay: 100ms;">
+                    <h3 class="font-bold text-lg mb-4"><i class="fa-brands fa-python text-yellow-500 mr-2"></i> Python + AI</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center"><span class="w-6 h-6 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">1</span> Python Syntax</li>
+                        <li class="flex items-center"><span class="w-6 h-6 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">2</span> Data Science Libs</li>
+                        <li class="flex items-center"><span class="w-6 h-6 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">3</span> AI/ML Projects</li>
+                        <li class="flex items-center font-bold text-brandDark"><i class="fa-solid fa-trophy text-yellow-500 mr-3 ml-1"></i> AI Engineer</li>
+                    </ul>
+                </div>
+                <!-- Roadmap Item -->
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition fade-in-section border-l-4 border-purple-600" style="transition-delay: 200ms;">
+                    <h3 class="font-bold text-lg mb-4"><i class="fa-solid fa-code text-purple-600 mr-2"></i> Competitive Coding</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center"><span class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">1</span> C++ Basics</li>
+                        <li class="flex items-center"><span class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">2</span> Adv Data Structures</li>
+                        <li class="flex items-center"><span class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center mr-2 font-bold">3</span> LeetCode Hard</li>
+                        <li class="flex items-center font-bold text-brandDark"><i class="fa-solid fa-trophy text-yellow-500 mr-3 ml-1"></i> FAANG Ready</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (Original Content: Founder & Vision) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="fade-in-section">
+                    <h3 class="text-brandBlue font-bold uppercase tracking-widest mb-2">Our Vision</h3>
+                    <h2 class="text-3xl font-bold text-brandDark mb-4">Education for Everyone</h2>
+                    <p class="text-lg text-gray-600 border-l-4 border-brandBlue pl-4 italic">
+                        “To make high-quality tech education accessible, practical, and career-oriented for every student.”
+                    </p>
+                    <h3 class="text-brandBlue font-bold uppercase tracking-widest mt-8 mb-2">Our Mission</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i> Bridge gap between academics & industry.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i> Provide hands-on coding education.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-3"></i> Offer mentorship & career support.</li>
+                    </ul>
+                </div>
+                
+                <!-- Founder Card -->
+                <div class="fade-in-section">
+                    <div class="bg-gray-50 rounded-3xl p-8 shadow-lg flex flex-col sm:flex-row items-center gap-6">
+                        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md shrink-0">
+                            <img src="https://ui-avatars.com/api/?name=Mudraboina+Sowrya&background=0056D2&color=fff&size=200" alt="Mudraboina Sowrya Sree">
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <h4 class="text-sm font-bold text-gray-400 uppercase">Founder</h4>
+                            <h3 class="text-2xl font-bold text-brandDark">Mudraboina Sowrya Sree</h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Passionate about democratizing tech education, Mudraboina founded Skill Orbit to help students navigate the complex world of programming with practical, hands-on guidance.
+                            </p>
+                            <div class="mt-4 space-x-3">
+                                <a href="#" class="text-gray-400 hover:text-brandBlue"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                                <a href="#" class="text-gray-400 hover:text-brandBlue"><i class="fa-brands fa-twitter text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION (Original + Detailed) -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-brandBlue font-bold uppercase">Master the Skills</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brandDark mt-2">Premium Courses</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 fade-in-section">
+                    <div class="h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                        <i class="fa-brands fa-java text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute -top-5 right-5 bg-yellow-400 text-xs font-bold px-2 py-1 rounded text-brandDark">BESTSELLER</div>
+                        <h3 class="text-xl font-bold mb-2">Java + DSA Mastery</h3>
+                        <p class="text-xs text-gray-500 mb-4">OOPs, Data Structures, Algorithms.</p>
+                        <div class="flex justify-between items-end mt-4 border-t pt-4">
+                            <div>
+                                <p class="text-xs text-gray-400 line-through">₹8,000</p>
+                                <p class="text-brandBlue font-bold text-lg">₹4,999</p>
+                            </div>
+                            <button class="bg-brandDark text-white px-3 py-1.5 rounded text-sm hover:bg-brandBlue transition">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 fade-in-section" style="transition-delay: 100ms;">
+                    <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center">
+                        <i class="fa-brands fa-python text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Python + AI</h3>
+                        <p class="text-xs text-gray-500 mb-4">Python, Pandas, AI Basics.</p>
+                        <div class="flex justify-between items-end mt-4 border-t pt-4">
+                            <div>
+                                <p class="text-xs text-gray-400 line-through">₹7,500</p>
+                                <p class="text-brandBlue font-bold text-lg">₹4,499</p>
+                            </div>
+                            <button class="bg-brandDark text-white px-3 py-1.5 rounded text-sm hover:bg-brandBlue transition">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 fade-in-section" style="transition-delay: 200ms;">
+                    <div class="h-40 bg-gradient-to-br from-cyan-600 to-blue-500 flex items-center justify-center">
+                        <i class="fa-solid fa-database text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">SQL + Databases</h3>
+                        <p class="text-xs text-gray-500 mb-4">Backend Data Management.</p>
+                        <div class="flex justify-between items-end mt-4 border-t pt-4">
+                            <div>
+                                <p class="text-xs text-gray-400 line-through">₹5,000</p>
+                                <p class="text-brandBlue font-bold text-lg">₹2,999</p>
+                            </div>
+                            <button class="bg-brandDark text-white px-3 py-1.5 rounded text-sm hover:bg-brandBlue transition">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 fade-in-section" style="transition-delay: 300ms;">
+                    <div class="h-40 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center">
+                        <i class="fa-solid fa-c text-6xl text-white opacity-80"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">C++ + DSA</h3>
+                        <p class="text-xs text-gray-500 mb-4">Logic Building & Competitive Coding.</p>
+                        <div class="flex justify-between items-end mt-4 border-t pt-4">
+                            <div>
+                                <p class="text-xs text-gray-400 line-through">₹8,000</p>
+                                <p class="text-brandBlue font-bold text-lg">₹4,999</p>
+                            </div>
+                            <button class="bg-brandDark text-white px-3 py-1.5 rounded text-sm hover:bg-brandBlue transition">Enroll</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRESS TRACKER & DASHBOARD (New Feature) -->
+    <section class="py-16 bg-brandDark text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 fade-in-section">
+                <span class="text-brandAccent font-bold uppercase tracking-widest text-xs">Premium Experience</span>
+                <h2 class="text-3xl font-bold mt-2 mb-6">Stay on Track with our <br>Student Dashboard</h2>
+                <p class="text-gray-400 mb-6">Track your assignments, attendance, and course completion in real-time.</p>
+                <ul class="space-y-4 mb-8 text-sm">
+                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-400 mr-3"></i> Automated Assignment Checking</li>
+                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-400 mr-3"></i> Live Class Reminders</li>
+                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-400 mr-3"></i> Performance Analytics</li>
+                </ul>
+            </div>
+            <!-- Mockup UI -->
+            <div class="md:w-1/2 w-full bg-gray-800 rounded-xl border border-gray-700 p-6 shadow-2xl transform rotate-1 hover:rotate-0 transition duration-500 fade-in-section">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold">S</div>
+                        <div>
+                            <div class="text-sm font-bold">Welcome, Student</div>
+                            <div class="text-xs text-gray-400">Python Master Course</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-xs text-gray-400 mb-1">Course Completed</div>
+                        <div class="text-2xl font-bold text-green-400">65%</div>
+                        <div class="w-full bg-gray-600 h-1.5 mt-2 rounded-full">
+                            <div class="bg-green-400 h-1.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-xs text-gray-400 mb-1">Assignments</div>
+                        <div class="text-2xl font-bold text-yellow-400">8/10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS GALLERY (New Feature) -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-brandDark">Real Projects You Will Build</h2>
+                <p class="text-gray-600 mt-2 text-sm">Don't just learn syntax. Build applications.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Project 1 -->
+                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-solid fa-robot text-4xl"></i></div>
+                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
+                        <h3 class="font-bold">AI Chatbot</h3>
+                        <p class="text-xs">Python + NLP</p>
+                    </div>
+                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">AI Personal Assistant</h4></div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-solid fa-chart-pie text-4xl"></i></div>
+                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
+                        <h3 class="font-bold">Sales Dashboard</h3>
+                        <p class="text-xs">SQL + Visualization</p>
+                    </div>
+                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">Data Analytics Dashboard</h4></div>
+                </div>
+                <!-- Project 3 -->
+                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-brands fa-amazon text-4xl"></i></div>
+                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
+                        <h3 class="font-bold">E-Com App</h3>
+                        <p class="text-xs">Java + Spring Boot</p>
+                    </div>
+                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">Amazon Clone</h4></div>
+                </div>
+                <!-- Project 4 -->
+                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-solid fa-gamepad text-4xl"></i></div>
+                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
+                        <h3 class="font-bold">Sudoku Solver</h3>
+                        <p class="text-xs">DSA Backtracking</p>
+                    </div>
+                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">Sudoku Visualizer</h4></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HALL OF FAME & STORIES (Original + New) -->
+    <section id="hall-of-fame" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-bold text-brandDark">Hall of Fame</h2>
+                <p class="text-gray-600 mt-2">Celebrating our Top Performers</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Achiever 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-brandAccent text-center fade-in-section">
+                    <img src="https://ui-avatars.com/api/?name=Ravi+K&background=FFC107&color=fff" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h3 class="font-bold text-lg">Ravi Kumar</h3>
+                    <p class="text-sm text-gray-500 mb-3">Placed at <span class="font-bold text-brandDark">TCS Digital</span></p>
+                    <div class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold inline-block">300+ Problems Solved</div>
+                </div>
+                <!-- Achiever 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500 text-center transform md:-translate-y-4 fade-in-section">
+                    <img src="https://ui-avatars.com/api/?name=Ananya+S&background=0056D2&color=fff" class="w-24 h-24 rounded-full mx-auto mb-4">
+                    <h3 class="font-bold text-lg">Ananya Singh</h3>
+                    <p class="text-sm text-gray-500 mb-3">Placed at <span class="font-bold text-brandDark">Amazon SDE</span></p>
+                    <div class="bg-brandAccent text-black px-3 py-1 rounded-full text-xs font-bold inline-block">Best Project Award</div>
+                    <p class="text-xs text-gray-500 mt-3 italic">"The detailed roadmap helped me crack the interview!"</p>
+                </div>
+                <!-- Achiever 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-purple-600 text-center fade-in-section">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+M&background=9333EA&color=fff" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h3 class="font-bold text-lg">Rahul M.</h3>
+                    <p class="text-sm text-gray-500 mb-3">Placed at <span class="font-bold text-brandDark">Accenture</span></p>
+                    <div class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold inline-block">5 Star HackerRank</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER SUPPORT (Original Detailed Content) -->
+    <section id="career-support" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-blue-50 rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row fade-in-section">
+                <!-- Left Content -->
+                <div class="p-10 md:w-2/3">
+                    <span class="bg-brandBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Personalized Service</span>
+                    <h2 class="text-3xl font-bold text-brandDark mt-4 mb-4">Career Guidance & Counselling</h2>
+                    <p class="text-gray-600 mb-6">Confused about your career path? Get a personalized roadmap, stream selection guidance, and college advice from experts.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center text-gray-700 text-sm"><i class="fa-solid fa-road text-brandBlue w-6"></i> Personalized Roadmap</div>
+                        <div class="flex items-center text-gray-700 text-sm"><i class="fa-solid fa-graduation-cap text-brandBlue w-6"></i> Stream Selection</div>
+                        <div class="flex items-center text-gray-700 text-sm"><i class="fa-solid fa-university text-brandBlue w-6"></i> College Guidance</div>
+                        <div class="flex items-center text-gray-700 text-sm"><i class="fa-solid fa-file-pdf text-brandBlue w-6"></i> Detailed PDF Report</div>
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <h4 class="font-bold text-brandDark">Process:</h4>
+                        <div class="flex items-center"><span class="w-6 h-6 bg-blue-200 rounded-full text-center text-xs font-bold mr-2 flex items-center justify-center">1</span> Fill Form</div>
+                        <div class="flex items-center"><span class="w-6 h-6 bg-blue-200 rounded-full text-center text-xs font-bold mr-2 flex items-center justify-center">2</span> Pay Fee</div>
+                        <div class="flex items-center"><span class="w-6 h-6 bg-blue-200 rounded-full text-center text-xs font-bold mr-2 flex items-center justify-center">3</span> 1-on-1 Session</div>
+                    </div>
+                </div>
+                <!-- Price Action -->
+                <div class="bg-brandDark text-white p-10 md:w-1/3 flex flex-col justify-center items-center text-center relative">
+                    <i class="fa-regular fa-compass text-9xl absolute opacity-10 top-0 right-0"></i>
+                    <h3 class="text-xl opacity-80 mb-2">Session Price</h3>
+                    <h2 class="text-5xl font-bold mb-6">₹399</h2>
+                    <button class="bg-brandBlue w-full py-3 rounded-lg font-bold hover:bg-blue-600 transition shadow-lg z-10">Book Session</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY (New Feature) -->
+    <section class="py-12 bg-green-50 border-t border-green-100">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in-section">
+            <i class="fa-brands fa-whatsapp text-5xl text-green-500 mb-4"></i>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Join the Skill Orbit Community</h3>
+            <p class="text-gray-600 mb-6">Get daily coding challenges, job updates, and connect with mentors.</p>
+            <button class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold shadow-lg transition">
+                Join WhatsApp Group
+            </button>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION (Original) -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl font-bold text-brandDark">Get In Touch</h2>
+                <p class="text-gray-600 mt-2">Have a query? We are here to help you.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Info -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm fade-in-section">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-brandBlue text-lg shrink-0 mr-4"><i class="fa-solid fa-phone"></i></div>
+                            <div><h4 class="font-bold">Phone</h4><p class="text-gray-600">+91 98765 43210</p></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-brandBlue text-lg shrink-0 mr-4"><i class="fa-solid fa-envelope"></i></div>
+                            <div><h4 class="font-bold">Email</h4><p class="text-gray-600">contact@skillorbit.com</p></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-brandBlue text-lg shrink-0 mr-4"><i class="fa-solid fa-location-dot"></i></div>
+                            <div><h4 class="font-bold">Address</h4><p class="text-gray-600">Skill Orbit Institute, Tech Park, India.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="fade-in-section">
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Name" class="w-full border rounded-lg p-3 focus:border-brandBlue outline-none">
+                            <input type="tel" placeholder="Phone" class="w-full border rounded-lg p-3 focus:border-brandBlue outline-none">
+                        </div>
+                        <input type="email" placeholder="Email" class="w-full border rounded-lg p-3 focus:border-brandBlue outline-none">
+                        <select class="w-full border rounded-lg p-3 focus:border-brandBlue outline-none bg-white">
+                            <option>Select Query</option>
+                            <option>Book Free Demo</option>
+                            <option>Course Enquiry</option>
+                            <option>Career Counselling (₹399)</option>
+                        </select>
+                        <textarea rows="4" placeholder="Message" class="w-full border rounded-lg p-3 focus:border-brandBlue outline-none"></textarea>
+                        <button type="button" class="w-full bg-brandBlue text-white py-3 rounded-lg font-bold hover:bg-brandDark transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brandDark text-gray-400 py-10 text-sm border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-white font-bold text-xl">SKILL <span class="text-brandBlue">ORBIT</span></span>
+                <p class="mt-2">Empowering Careers since 2023.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms</a>
+                <div class="flex space-x-3">
+                    <a href="#" class="hover:text-brandBlue"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brandBlue"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 text-xs opacity-50">&copy; 2025 Skill Orbit. All rights reserved.</div>
+    </footer>
+
+    <!-- 💬 WIDGETS: CHATBOT & WHATSAPP -->
+    
+    <!-- WhatsApp Widget -->
+    <a href="#" class="fixed bottom-6 left-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition hover:scale-110">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- AI Chatbot Trigger -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div class="bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg mb-3 text-sm font-medium animate-bounce-slight border border-gray-200">
+            Need a Free Demo? 👋
+        </div>
+        <button onclick="toggleChat()" class="bg-brandBlue text-white w-14 h-14 rounded-full shadow-2xl hover:bg-blue-700 transition flex items-center justify-center">
+            <i class="fa-solid fa-comments text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div id="chat-window" class="fixed bottom-24 right-6 z-50 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 hidden flex-col overflow-hidden transform transition-all">
+        <div class="bg-brandBlue text-white p-4 flex justify-between items-center">
+            <span class="font-bold text-sm">Skill Orbit Assistant</span>
+            <button onclick="toggleChat()" class="text-white"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="h-64 bg-gray-50 p-4 overflow-y-auto space-y-3 text-xs">
+            <div class="bg-blue-100 p-2 rounded-lg rounded-tl-none self-start max-w-[85%] text-gray-800">
+                Hello! Welcome to Skill Orbit. How can I help you?
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <button class="bg-white border border-blue-200 text-brandBlue px-2 py-1 rounded-full hover:bg-blue-50">Book Demo</button>
+                <button class="bg-white border border-blue-200 text-brandBlue px-2 py-1 rounded-full hover:bg-blue-50">Fees?</button>
+                <button class="bg-white border border-blue-200 text-brandBlue px-2 py-1 rounded-full hover:bg-blue-50">Counselling</button>
+            </div>
+        </div>
+        <div class="p-3 border-t bg-white flex">
+            <input type="text" placeholder="Type here..." class="flex-1 bg-gray-100 rounded-l px-3 py-2 text-sm outline-none">
+            <button class="bg-brandBlue text-white px-3 rounded-r"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        function toggleChat() {
+            const w = document.getElementById('chat-window');
+            w.classList.toggle('hidden');
+            w.classList.toggle('flex');
+        }
+        function openChat() {
+            const w = document.getElementById('chat-window');
+            w.classList.remove('hidden');
+            w.classList.add('flex');
+        }
+
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        });
+        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
