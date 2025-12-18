@@ -3,8 +3,8 @@ import { SyllabusResponse } from "../types";
 import { DUMMY_COURSES, OFFICIAL_CURRICULUM } from "../data";
 
 // Initialize Gemini Client
-// Assumption: process.env.API_KEY is available in the environment
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// For Vite, environment variables must be prefixed with VITE_ and accessed via import.meta.env
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 /**
  * Chat with the AI Tutor.
