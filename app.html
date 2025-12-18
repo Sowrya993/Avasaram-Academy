@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Orbit - Empowering Careers</title>
+    <title>Avasaram Academy - Empowering Careers</title>
     
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,8 +78,11 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <i class="fa-solid fa-orbit text-brandBlue text-3xl mr-2"></i>
-                    <span class="font-bold text-2xl tracking-wide text-brandDark">SKILL <span class="text-brandBlue">ORBIT</span></span>
+                    <img src="public/logo.png" alt="Avasaram Academy Logo" class="w-16 h-16 mr-2">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl tracking-wide text-brandDark leading-none">AVASARAM</span>
+                        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Academy</span>
+                    </div>
                 </div>
 
                 <!-- Desktop Menu -->
@@ -87,7 +90,7 @@
                     <a href="#home" class="hover:text-brandBlue transition">Home</a>
                     <a href="#about" class="hover:text-brandBlue transition">About</a>
                     <a href="#courses" class="hover:text-brandBlue transition">Courses</a>
-                    <a href="#projects" class="hover:text-brandBlue transition">Projects</a>
+                    <a href="projects.html" class="hover:text-brandBlue transition">Projects</a>
                     <a href="#hall-of-fame" class="hover:text-brandBlue transition">Success Stories</a>
                     <a href="#career-support" class="hover:text-brandBlue transition">Career Support</a>
                     <!-- CTA Button -->
@@ -109,7 +112,7 @@
             <a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Home</a>
             <a href="#about" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">About</a>
             <a href="#courses" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Courses</a>
-            <a href="#projects" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Projects</a>
+            <a href="projects.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Projects</a>
             <a href="#career-support" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 border-b">Career Support</a>
             <a href="#contact" class="block px-4 py-3 text-brandBlue font-bold bg-blue-50">Book Free Demo</a>
         </div>
@@ -400,49 +403,85 @@
         </div>
     </section>
 
-    <!-- PROJECTS GALLERY (New Feature) -->
-    <section id="projects" class="py-16 bg-white">
+    <!-- PROJECTS GALLERY -->
+    <section id="projects" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 fade-in-section">
-                <h2 class="text-3xl font-bold text-brandDark">Real Projects You Will Build</h2>
-                <p class="text-gray-600 mt-2 text-sm">Don't just learn syntax. Build applications.</p>
+            <div class="text-center mb-16 fade-in-section">
+                <span class="text-brandBlue font-bold uppercase text-sm">Research & Development</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brandDark mt-2">Our Projects</h2>
+                <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Innovative machine learning solutions addressing real-world challenges in healthcare and transportation.</p>
             </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Project 1 -->
-                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
-                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-solid fa-robot text-4xl"></i></div>
-                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
-                        <h3 class="font-bold">AI Chatbot</h3>
-                        <p class="text-xs">Python + NLP</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1: Brain Tumor Detection -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 fade-in-section border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-4 left-4 w-20 h-20 border-2 border-white rounded-full"></div>
+                            <div class="absolute bottom-4 right-4 w-16 h-16 border-2 border-white rounded-full"></div>
+                        </div>
+                        <i class="fa-solid fa-brain text-6xl text-white opacity-90"></i>
                     </div>
-                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">AI Personal Assistant</h4></div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded">Deep Learning</span>
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">ResNet</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDark mb-3">Brain Tumor Detection using ResNet</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Leveraging ResNet's deep learning architecture to analyze MRI scans and identify brain tumor regions. The model distinguishes between healthy brain tissue and tumor-afflicted regions with high precision, enhancing diagnostic accuracy.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs text-gray-500">
+                            <i class="fa-solid fa-microchip mr-2 text-brandBlue"></i> CNN • MRI Analysis • Medical AI
+                        </div>
+                    </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
-                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-solid fa-chart-pie text-4xl"></i></div>
-                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
-                        <h3 class="font-bold">Sales Dashboard</h3>
-                        <p class="text-xs">SQL + Visualization</p>
+
+                <!-- Project 2: Chest X-ray Analysis -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 fade-in-section border border-gray-100" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute top-6 right-6 w-24 h-24 border-2 border-white rounded-lg rotate-12"></div>
+                        </div>
+                        <i class="fa-solid fa-lungs text-6xl text-white opacity-90"></i>
                     </div>
-                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">Data Analytics Dashboard</h4></div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-cyan-100 text-cyan-700 text-xs font-bold px-2 py-1 rounded">Deep Learning</span>
+                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">CNN</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDark mb-3">Chest X-ray Analysis with CNN</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Using Convolutional Neural Networks to analyze chest X-ray images for medical diagnosis. Automatically extracts features to identify abnormalities like pneumonia, tuberculosis, and lung cancer with clinical accuracy.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs text-gray-500">
+                            <i class="fa-solid fa-x-ray mr-2 text-brandBlue"></i> Image Classification • Healthcare
+                        </div>
+                    </div>
                 </div>
-                <!-- Project 3 -->
-                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
-                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-brands fa-amazon text-4xl"></i></div>
-                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
-                        <h3 class="font-bold">E-Com App</h3>
-                        <p class="text-xs">Java + Spring Boot</p>
+
+                <!-- Project 3: TGRTC Bus Prediction -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 fade-in-section border border-gray-100" style="transition-delay: 200ms;">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-20">
+                            <div class="absolute bottom-0 left-0 right-0 h-8 bg-white"></div>
+                            <div class="absolute top-8 left-8 w-12 h-12 border-2 border-white rounded"></div>
+                        </div>
+                        <i class="fa-solid fa-bus text-6xl text-white opacity-90"></i>
                     </div>
-                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">Amazon Clone</h4></div>
-                </div>
-                <!-- Project 4 -->
-                <div class="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer fade-in-section">
-                    <div class="h-40 bg-gray-800 flex items-center justify-center text-gray-600"><i class="fa-solid fa-gamepad text-4xl"></i></div>
-                    <div class="absolute inset-0 bg-brandBlue/90 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-white p-4">
-                        <h3 class="font-bold">Sudoku Solver</h3>
-                        <p class="text-xs">DSA Backtracking</p>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded">Machine Learning</span>
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">SVM</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDark mb-3">TGRTC Bus Arrival Prediction</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Predicting student arrival times using RTC bus data. Analyzes schedules, routes, weather, and traffic patterns using SVM, Decision Trees, and Naive Bayes to help students optimize their commute.
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs text-gray-500">
+                            <i class="fa-solid fa-chart-line mr-2 text-brandBlue"></i> Predictive Analytics • Transportation
+                        </div>
                     </div>
-                    <div class="p-3 border-x border-b text-center"><h4 class="font-bold text-sm">Sudoku Visualizer</h4></div>
                 </div>
             </div>
         </div>
@@ -581,9 +620,12 @@
     <!-- FOOTER -->
     <footer class="bg-brandDark text-gray-400 py-10 text-sm border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="text-white font-bold text-xl">SKILL <span class="text-brandBlue">ORBIT</span></span>
-                <p class="mt-2">Empowering Careers since 2023.</p>
+            <div class="mb-4 md:mb-0 flex items-center">
+                <img src="public/logo.png" alt="Avasaram Academy Logo" class="w-14 h-14 mr-2">
+                <div>
+                    <span class="text-white font-bold text-xl">AVASARAM <span class="text-brandBlue">Academy</span></span>
+                    <p class="mt-1 text-sm">Empowering Careers since 2023.</p>
+                </div>
             </div>
             <div class="flex space-x-6">
                 <a href="#" class="hover:text-white transition">Privacy Policy</a>

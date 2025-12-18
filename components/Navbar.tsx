@@ -1,6 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
-import { BookOpen, MessageSquare, Menu, X, Zap, Compass, Sparkles } from 'lucide-react';
+import { BookOpen, MessageSquare, Menu, X, Zap, Compass, Sparkles, FolderKanban } from 'lucide-react';
 import { Button } from './Button';
 
 interface NavbarProps {
@@ -23,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView }) => 
   const navItems = [
     { label: 'Home', view: ViewState.HOME, icon: <Zap className="w-4 h-4" /> },
     { label: 'Courses', view: ViewState.COURSES, icon: <BookOpen className="w-4 h-4" /> },
+    { label: 'Projects', view: ViewState.PROJECTS, icon: <FolderKanban className="w-4 h-4" /> },
     { label: 'AI Mentor', view: ViewState.TUTOR, icon: <MessageSquare className="w-4 h-4" /> },
     { label: 'Career Support', view: ViewState.CAREER_SUPPORT, icon: <Compass className="w-4 h-4" /> },
   ];
@@ -57,9 +58,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onChangeView }) => 
               onClick={() => onChangeView(ViewState.HOME)}
             >
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mr-3 shadow-lg shadow-orange-500/25 group-hover:shadow-orange-500/40 transition-shadow">
-                  <span className="text-white font-bold text-xl">A</span>
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="Avasaram Academy Logo"
+                  className="w-16 h-16 mr-3 group-hover:scale-105 transition-transform"
+                />
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-stone-900 tracking-tight group-hover:text-orange-600 transition-colors leading-none">
                     AVASARAM

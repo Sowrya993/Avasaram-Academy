@@ -11,6 +11,10 @@ import { DUMMY_COURSES } from './data';
 const AITutor = lazy(() => import('./components/AITutor').then(m => ({ default: m.AITutor })));
 const CourseDetails = lazy(() => import('./components/CourseDetails').then(m => ({ default: m.CourseDetails })));
 const CareerSupport = lazy(() => import('./components/CareerSupport').then(m => ({ default: m.CareerSupport })));
+const Projects = lazy(() => import('./components/Projects').then(m => ({ default: m.Projects })));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const TermsOfService = lazy(() => import('./components/TermsOfService').then(m => ({ default: m.TermsOfService })));
+const RefundPolicy = lazy(() => import('./components/RefundPolicy').then(m => ({ default: m.RefundPolicy })));
 
 // Loading fallback component
 const LoadingSpinner = () => (
@@ -54,6 +58,12 @@ function App() {
         );
       case ViewState.COURSES:
         return <CourseList onCourseClick={handleCourseClick} />;
+      case ViewState.PROJECTS:
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Projects onViewCourses={() => handleViewChange(ViewState.COURSES)} />
+          </Suspense>
+        );
       case ViewState.COURSE_DETAILS:
         const selectedCourse = DUMMY_COURSES.find(c => c.id === selectedCourseId);
         if (!selectedCourse) return <CourseList onCourseClick={handleCourseClick} />;
@@ -77,6 +87,24 @@ function App() {
             <CareerSupport />
           </Suspense>
         );
+      case ViewState.PRIVACY_POLICY:
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <PrivacyPolicy />
+          </Suspense>
+        );
+      case ViewState.TERMS_OF_SERVICE:
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <TermsOfService />
+          </Suspense>
+        );
+      case ViewState.REFUND_POLICY:
+        return (
+          <Suspense fallback={<LoadingSpinner />}>
+            <RefundPolicy />
+          </Suspense>
+        );
       default:
         return (
           <Hero
@@ -95,7 +123,7 @@ function App() {
         {renderView()}
       </main>
 
-      <Footer />
+      <Footer onChangeView={handleViewChange} />
     </div>
   );
 }
