@@ -1,5 +1,4 @@
 import React from 'react';
-import { Handshake } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -366,27 +365,6 @@ export const Projects: React.FC<ProjectsProps> = ({ onViewCourses }) => {
           <p className="text-lg text-stone-300 max-w-3xl mx-auto">
             Innovative machine learning and artificial intelligence solutions designed to solve complex real-world problems across diverse industries and domains.
           </p>
-        </div>
-      </section>
-
-      {/* Collaborator Section */}
-      <section className="py-8 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Handshake className="w-6 h-6 text-orange-400" />
-            <span className="text-stone-300 font-medium">In Collaboration With</span>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm px-6 py-5 rounded-2xl border border-white/20 text-center">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3">
-              <h3 className="text-2xl md:text-3xl font-bold text-white">AICraftAlchemy</h3>
-              <span className="hidden sm:block text-stone-400">|</span>
-              <p className="text-stone-300"><span className="text-orange-400 font-semibold">E.Lokesh</span> - Founder & CEO</p>
-            </div>
-            <p className="text-orange-400 font-semibold text-sm mb-2">Pioneering AI Solutions</p>
-            <p className="text-stone-400 text-sm max-w-3xl mx-auto leading-relaxed">
-              Transforming raw data into golden insights. Expert alchemists specializing in AI, Machine Learning, and Deep Learning — transmuting complex data into valuable knowledge, empowering businesses to drive innovation.
-            </p>
-          </div>
         </div>
       </section>
 
